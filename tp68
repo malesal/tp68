@@ -6,33 +6,21 @@ string InsertarPunto(const string & frase);
 
 int main() {
     string cadena;
-    char caracter;
-
     cout << "Ingrese una cadena: ";
     getline(cin, cadena);
 
-    cout << "Ingrese un carácter: ";
-    cin >> caracter;
-
     string resultado = InsertarPunto(cadena);
-
     cout << "Resultado: " << resultado << endl;
-
     return 0;
 }
-string InsertarPunto(const string& frase) {
+
+string InsertarPunto(const string & frase) {
     string resultado;
-    int contador = 0;
-
-    for (char c : frase) {
-        if (contador == 3) {
+    for (int i = 0; i < frase.length(); i++) {
+        resultado += frase[i];
+        if ((i + 1) % 3 == 0) {
             resultado += '.';
-            contador = 0;
         }
-        
-        resultado += c;
-        contador++;
     }
-
     return resultado;
 }
